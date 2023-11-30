@@ -19,5 +19,7 @@ export default {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx}',
     '!<rootDir>/src/**/index.{ts,tsx}',
+    '!<rootDir>/src/**/variants/**/*.ts',
+    '!<rootDir>/src/**/variants.ts',
   ],
 };
