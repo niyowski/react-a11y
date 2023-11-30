@@ -66,6 +66,15 @@
         "cwd": "apps/demo",
         "forwardAllArgs": false
       }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/demo/jest.config.ts",
+        "codeCoverage": true,
+        "coverageReporters": ["clover", "json", "lcov", "text"]
+      }
     }
   },
   "tags": []
