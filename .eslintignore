@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# nx
+.nx/cache
+
+# output
+dist
+tmp
+
+# testing
+coverage
