@@ -28,6 +28,7 @@ pnpm cm
 ## Applications and Libraries
 
 - _demo_ - A React.js application with accessibility issues.
+- _@demo/ui_ - A design system library for the demo application.
 
 ## Credits
 
