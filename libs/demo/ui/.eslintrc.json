@@ -4,9 +4,18 @@
     "!**/*",
     "vite.config.ts",
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "cypress.config.ts"
   ],
   "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    },
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
@@ -18,11 +27,13 @@
       "rules": {}
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
+      "files": ["*.cy.{ts,js,tsx,jsx}", "cypress/**/*.{ts,js,tsx,jsx}"],
+      "parserOptions": {
+        "project": [
+          "libs/demo/ui/tsconfig.*?.json",
+          "libs/demo/ui/cypress/tsconfig.json"
+        ]
+      },
       "rules": {}
     }
   ]

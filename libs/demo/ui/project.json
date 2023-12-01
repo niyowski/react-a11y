@@ -95,6 +95,25 @@
         "cwd": "libs/demo/ui",
         "forwardAllArgs": false
       }
+    },
+    "cy": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/demo/ui/cypress.config.ts",
+        "testingType": "component",
+        "devServerTarget": "ui:build",
+        "skipServe": true
+      }
+    },
+    "cy-watch": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/demo/ui/cypress.config.ts",
+        "testingType": "component",
+        "devServerTarget": "ui:build",
+        "skipServe": true,
+        "watch": true
+      }
     }
   }
 }
