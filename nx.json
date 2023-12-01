@@ -31,8 +31,9 @@
         }
       }
     },
-    "e2e": {
-      "cache": true
+    "cy": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     },
     "build-storybook": {
       "cache": true,

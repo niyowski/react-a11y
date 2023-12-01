@@ -75,6 +75,33 @@
         "codeCoverage": true,
         "coverageReporters": ["clover", "json", "lcov", "text"]
       }
+    },
+    "cy": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/demo/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "demo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "demo:serve:production"
+        }
+      }
+    },
+    "cy-watch": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "watch": true,
+        "cypressConfig": "apps/demo/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "demo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "demo:serve:production"
+        }
+      }
     }
   },
   "tags": []
