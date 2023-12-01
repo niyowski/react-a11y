@@ -10,9 +10,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      base: colors.stone,
-      primary: colors.blue,
-      secondary: colors.orange,
+      colors: {
+        base: colors.stone,
+        primary: colors.blue,
+        secondary: colors.orange,
+      },
     },
   },
   plugins: [

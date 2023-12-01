@@ -19,6 +19,10 @@
     "**/*.test.js",
     "**/*.spec.jsx",
     "**/*.test.jsx",
-    "test"
+    "test",
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx"
   ]
 }

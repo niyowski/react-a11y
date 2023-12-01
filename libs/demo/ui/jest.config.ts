@@ -21,5 +21,6 @@ export default {
     '!<rootDir>/src/**/index.{ts,tsx}',
     '!<rootDir>/src/**/variants/**/*.ts',
     '!<rootDir>/src/**/variants.ts',
+    '!<rootDir>/src/**/*.stories.{ts,tsx}',
   ],
 };

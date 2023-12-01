@@ -10,6 +10,7 @@
 
 [![Jest](https://img.shields.io/badge/Jest-C21325.svg?style=for-the-badge&logo=Jest&logoColor=white)](https://jestjs.io/)
 [![Testing Library](https://img.shields.io/badge/Testing%20Library-E33332.svg?style=for-the-badge&logo=Testing-Library&logoColor=white)](https://testing-library.com/)
+[![Storybook](https://img.shields.io/badge/Storybook-FF4785.svg?style=for-the-badge&logo=Storybook&logoColor=white)](https://storybook.js.org/)
 
 Accessibility in [React.js](https://react.dev/) applications.
 
@@ -21,6 +22,9 @@ pnpm install
 
 # Run the demo application
 pnpm demo:start
+
+# Run the storybook
+pnpm ui:start
 
 # Commit your changes
 pnpm cm

@@ -10,7 +10,10 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["libs/demo/ui/tsconfig.*?.json"]
+        "project": [
+          "libs/demo/ui/tsconfig.*?.json",
+          "libs/demo/ui/tsconfig.storybook.json"
+        ]
       },
       "rules": {}
     },
