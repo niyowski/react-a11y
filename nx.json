@@ -35,6 +35,9 @@
       "cache": true,
       "inputs": ["default", "^production"]
     },
+    "pw": {
+      "inputs": ["default", "^production"]
+    },
     "build-storybook": {
       "cache": true,
       "inputs": [

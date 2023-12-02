@@ -12,6 +12,7 @@
 [![Jest](https://img.shields.io/badge/Jest-C21325.svg?style=for-the-badge&logo=Jest&logoColor=white)](https://jestjs.io/)
 [![Testing Library](https://img.shields.io/badge/Testing%20Library-E33332.svg?style=for-the-badge&logo=Testing-Library&logoColor=white)](https://testing-library.com/)
 [![Cypress](https://img.shields.io/badge/Cypress-17202C.svg?style=for-the-badge&logo=Cypress&logoColor=white)](https://www.cypress.io/)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33.svg?style=for-the-badge&logo=Playwright&logoColor=white)](https://playwright.dev/)
 
 Accessibility in [React.js](https://react.dev/) applications.
 
@@ -24,8 +25,11 @@ pnpm install
 # Run the demo application
 pnpm demo:start
 
-# Run Cypress e2e tests for the demo application
+# Run Cypress e2e tests
 pnpm demo:cy
+
+# Run Playwright e2e tests
+pnpm demo:pw
 
 # Run the storybook
 pnpm ui:start

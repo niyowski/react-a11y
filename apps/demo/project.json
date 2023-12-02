@@ -102,6 +102,21 @@
           "devServerTarget": "demo:serve:production"
         }
       }
+    },
+    "pw": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/demo"],
+      "options": {
+        "config": "apps/demo/playwright.config.ts"
+      }
+    },
+    "pw-watch": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/demo"],
+      "options": {
+        "config": "apps/demo/playwright.config.ts",
+        "ui": true
+      }
     }
   },
   "tags": []
