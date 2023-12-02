@@ -1,12 +1,13 @@
 import { render, screen } from 'test/utils';
 
-import { App } from './app';
-import { BRAND_NAME, testId } from './constants';
+import { BRAND_NAME, testId } from '~/constants';
 
-describe('App', () => {
+import { Layout } from './layout';
+
+describe('Layout', () => {
   it('should have a brand name', () => {
     // Act
-    render(<App />);
+    render(<Layout />);
 
     // Assert
     expect(screen.getByTestId(testId.brandName)).toHaveTextContent(BRAND_NAME);

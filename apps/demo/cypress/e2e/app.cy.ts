@@ -1,4 +1,4 @@
-import { BRAND_NAME, testId } from '~/app/constants';
+import { BRAND_NAME, testId } from '~/constants';
 
 describe('demo', () => {
   beforeEach(() => cy.visit('/'));

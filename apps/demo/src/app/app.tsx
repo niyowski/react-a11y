@@ -1,30 +1,12 @@
-import { Button } from '@demo/ui';
+import { RouterProvider } from 'react-router-dom';
 
-import { BRAND_NAME, testId } from './constants';
 import { Providers } from './providers';
-
-// eslint-disable-next-line no-console
-const log = console.log;
+import { router } from './router';
 
 export function App() {
   return (
     <Providers>
-      <div className="prose flex min-h-screen flex-col">
-        <div className="p-4">
-          <span data-testid={testId.brandName}>{BRAND_NAME}</span>
-          <Button onClick={() => log('Clicked!')}>Click me</Button>
-        </div>
-        <div className="flex-1"></div>
-        <div className="p-4">
-          <a
-            href="https://opensource.org/license/mit/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            MIT
-          </a>
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </Providers>
   );
 }

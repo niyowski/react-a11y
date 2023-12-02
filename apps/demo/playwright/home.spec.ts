@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import { BRAND_NAME, testId } from '~/app/constants';
+import { BRAND_NAME, testId } from '~/constants';
 
 test('has a brand name', async ({ page }) => {
   // Act

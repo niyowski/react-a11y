@@ -15,6 +15,7 @@ const config: Config = {
     '<rootDir>/src/**/*.{ts,tsx}',
     '!<rootDir>/src/**/index.{ts,tsx}',
     '!<rootDir>/src/**/constants.ts',
+    '!<rootDir>/src/app/*.{ts,tsx}',
     '!<rootDir>/src/main.tsx',
   ],
 };
