@@ -1,5 +1,9 @@
 {
-  "extends": ["plugin:@nx/react", "../../../.eslintrc.json"],
+  "extends": [
+    "plugin:storybook/recommended",
+    "plugin:@nx/react",
+    "../../../.eslintrc.json"
+  ],
   "ignorePatterns": [
     "!**/*",
     "vite.config.ts",

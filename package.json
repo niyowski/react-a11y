@@ -42,7 +42,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "^6.20.1",
     "sort-by": "^1.2.0",
-    "tailwind-merge": "^2.0.0",
+    "tailwind-merge": "^2.1.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -85,7 +85,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.10",
     "@types/node": "20.10.2",
-    "@types/react": "18.2.40",
+    "@types/react": "18.2.41",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
@@ -103,6 +103,7 @@
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
