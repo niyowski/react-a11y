@@ -1,4 +1,4 @@
-import { renderPage, screen, userEvent } from 'test/utils';
+import { render, screen, userEvent } from 'test/utils';
 
 import { Page } from './page';
 
@@ -9,7 +9,7 @@ describe('HomePage', () => {
     const consoleSpy = jest.spyOn(console, 'log');
 
     // Act
-    renderPage(<Page />, { route: '/' });
+    render(<Page />);
 
     // Assert
     const button = screen.getByRole('button', { name: /click me/i });

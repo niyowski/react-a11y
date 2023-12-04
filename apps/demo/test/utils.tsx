@@ -1,36 +1,25 @@
 import { render, RenderOptions } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ReactElement } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 import { Providers } from '~/app/providers';
 
-type RenderOptionsWithoutWrapper = Omit<RenderOptions, 'wrapper'>;
+interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {}
 
-const customRender = (
-  ui: ReactElement,
-  options: RenderOptionsWithoutWrapper = {},
-) => {
+const customRender = (ui: ReactElement, options: CustomRenderOptions = {}) => {
+  const Wrapper = ({ children }: PropsWithChildren) => (
+    <Providers>
+      <MemoryRouter>{children}</MemoryRouter>
+    </Providers>
+  );
+
   return render(ui, {
     ...options,
-    wrapper: Providers,
-  });
-};
-
-interface PageRenderOptions extends RenderOptionsWithoutWrapper {
-  route: string;
-}
-
-const renderPage = (ui: ReactElement, options: PageRenderOptions) => {
-  const { route, ...renderOptions } = options;
-
-  window.history.pushState({}, 'Page', route);
-
-  return render(ui, {
-    ...renderOptions,
-    wrapper: Providers,
+    wrapper: Wrapper,
   });
 };
 
 export * from '@testing-library/react';
-export { customRender as render, renderPage };
+export { customRender as render };
 export { userEvent };
