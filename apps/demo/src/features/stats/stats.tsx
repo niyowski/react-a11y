@@ -1,4 +1,4 @@
-import { Anchor, Gauge } from '@demo/ui';
+import { Anchor, Gauge, Heading } from '@demo/ui';
 
 import { testId } from '~/constants';
 
@@ -9,11 +9,15 @@ export const Stats: React.FC = () => {
 
   return (
     <div data-testid={testId.stats}>
-      <h1 className="my-8">The WebAIM Million - 2023</h1>
+      <Heading as="h1" className="my-8">
+        The WebAIM Million - 2023
+      </Heading>
       <Anchor href="https://webaim.org/projects/million/">Source</Anchor>
       {stats.map((stat) => (
         <div key={stat.id}>
-          <h2 className="my-8">{stat.title}</h2>
+          <Heading as="h2" className="my-8">
+            {stat.title}
+          </Heading>
           <div className="grid grid-cols-3 justify-evenly">
             {stat.items.map((item) => (
               <Gauge
