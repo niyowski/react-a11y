@@ -6,6 +6,7 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   content: [
     join(__dirname, 'src/**/*!(*.stories|*.spec).{ts,tsx,html}'),
+    join(__dirname, '.storybook/*.{ts,tsx}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {

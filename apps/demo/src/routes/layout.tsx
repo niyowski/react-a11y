@@ -5,7 +5,7 @@ import { BRAND_NAME, testId } from '~/constants';
 
 export function Layout() {
   return (
-    <div className="prose flex min-h-screen max-w-none flex-col">
+    <div className="prose mx-auto flex min-h-screen max-w-screen-lg flex-col">
       <div className="flex items-center justify-between p-4">
         <Link to="/" intent="primary">
           <Brand
@@ -22,11 +22,12 @@ export function Layout() {
           />
         </Link>
         <div className="flex divide-x text-center">
-          <Link to="/resources" className="px-4">
+          <Link to="/resources" intent="primary" className="px-4">
             Resources
           </Link>
           <Anchor
             href="https://github.com/niyowski/react-a11y"
+            intent="primary"
             className="px-4"
           >
             Source Code

@@ -1,4 +1,3 @@
-import { mount } from 'cypress/react18';
 import { MemoryRouter } from 'react-router-dom';
 
 import { Anchor } from './anchor';
@@ -13,7 +12,7 @@ describe('Link', () => {
     const href = '/';
 
     // Act
-    mount(
+    cy.mount(
       <MemoryRouter>
         <Link to={href}>My Link</Link>
       </MemoryRouter>,
@@ -32,7 +31,7 @@ describe('Anchor', () => {
     const href = 'https://www.cypress.io/';
 
     // Act
-    mount(<Anchor href={href}>My Link</Anchor>);
+    cy.mount(<Anchor href={href}>My Link</Anchor>);
 
     // Assert
     getLink().should('contains.text', text);

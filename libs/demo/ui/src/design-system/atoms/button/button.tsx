@@ -1,5 +1,6 @@
 import React from 'react';
 
+import type { Testable } from '../../types';
 import { classNames } from '../../utils/css';
 import { type RadiusVariants, radiusVariants } from '../../variants/radius';
 import { type ButtonVariants, buttonVariants } from './variants';
@@ -7,7 +8,8 @@ import { type ButtonVariants, buttonVariants } from './variants';
 type Variants = ButtonVariants & RadiusVariants;
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    Variants {}
+    Variants,
+    Testable {}
 
 export const Button: React.FC<ButtonProps> = ({
   intent,
