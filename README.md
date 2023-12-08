@@ -45,4 +45,7 @@ pnpm cm
 
 ## Credits
 
-[Accessibility](https://icons8.com/icon/63223/web-accessibility) icon by [Icons8](https://icons8.com).
+- [Accessibility icon by Icons8](https://icons8.com/icon/63223/web-accessibility)
+- [Photo by Elizabeth Woolner on Unsplash](https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-desk-9xxNZCJZ8bA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- [Photo by Ian Schneider on Unsplash](https://unsplash.com/photos/two-person-standing-on-gray-tile-paving-TamMbr4okv4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- [Photo by Tingey Injury Law Firm on Unsplash](https://unsplash.com/photos/brown-wooden-stand-with-black-background-nSpj-Z12lX0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
