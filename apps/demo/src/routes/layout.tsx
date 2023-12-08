@@ -2,6 +2,7 @@ import { Anchor, Brand, Link } from '@demo/ui';
 import { Outlet } from 'react-router-dom';
 
 import { BRAND_NAME, testId } from '~/constants';
+import { NewsletterSubscription } from '~/features/newsletter';
 
 export function Layout() {
   return (
@@ -15,6 +16,7 @@ export function Layout() {
                 width={64}
                 height={64}
                 data-testid={testId.brandLogo}
+                className="m-0"
               />
             }
             name={BRAND_NAME}
@@ -37,11 +39,13 @@ export function Layout() {
       <div className="flex-1 p-4">
         <Outlet />
       </div>
-      <div className="p-4">
+      <div className="grid grid-cols-3 p-4">
         <span>
           <Anchor href="https://opensource.org/licenses/MIT">MIT</Anchor>{' '}
           Licensed.
         </span>
+        <div></div>
+        <NewsletterSubscription />
       </div>
     </div>
   );

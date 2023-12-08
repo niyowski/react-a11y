@@ -9,3 +9,7 @@ export interface Testable {
 export interface Styleable {
   className?: string;
 }
+
+export interface Submitable {
+  required?: boolean;
+}

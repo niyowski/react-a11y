@@ -1,4 +1,5 @@
 import { Anchor } from '@demo/ui';
+import { Fragment } from 'react';
 
 import { ToolInfo } from '../types';
 
@@ -10,7 +11,7 @@ export const TabContent: React.FC<TabContentProps> = ({ tools }) => {
   return (
     <dl>
       {tools.map((tool) => (
-        <>
+        <Fragment key={tool.id}>
           <dt key={tool.id}>
             <Anchor href={tool.link}>{tool.title}</Anchor>
             {!!tool.tags?.length && (
@@ -20,7 +21,7 @@ export const TabContent: React.FC<TabContentProps> = ({ tools }) => {
             )}
           </dt>
           {tool.description && <dd>{tool.description}</dd>}
-        </>
+        </Fragment>
       ))}
     </dl>
   );
