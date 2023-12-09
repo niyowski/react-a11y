@@ -14,10 +14,10 @@ const getNextButton = () =>
 const getSlides = () => cy.get(`[data-testid=${testId.carouselSlide}]`);
 const getSlideImages = () =>
   cy.get(`[data-testid=${testId.carouselSlideImage}]`);
-const getSlideContent = () =>
+const getSlideContents = () =>
   cy.get(`[data-testid=${testId.carouselSlideContent}]`);
 
-describe('Tabs', () => {
+describe('Carousel', () => {
   it('should render correctly', () => {
     // Arrange
     const slides: CarouselSlide[] = [
@@ -50,7 +50,7 @@ describe('Tabs', () => {
         cy.wrap($items[0]).should('have.attr', 'src', '/slide-1.jpg');
         cy.wrap($items[1]).should('have.attr', 'src', '/slide-3.jpg');
       });
-    getSlideContent().should('have.length', 2);
+    getSlideContents().should('have.length', 2);
     getNextButton().should('exist');
   });
 });

@@ -19,7 +19,7 @@ export const Anchor: React.FC<AnchorProps> = ({
       {...props}
       className={classNames(linkVariants({ intent }), className)}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       {children}
     </a>

@@ -34,6 +34,10 @@ export const Default: Story = {
   },
 };
 
+export const Ghost = () => {
+  return <Button intent="ghost">My Button</Button>;
+};
+
 export const Primary = () => {
   return <Button intent="primary">My Button</Button>;
 };

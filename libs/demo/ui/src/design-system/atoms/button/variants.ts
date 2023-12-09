@@ -20,6 +20,12 @@ export const buttonVariants = cva(
           'hover:bg-secondary-700',
           'focus-visible:outline-secondary-900',
         ],
+        ghost: [
+          'bg-transparent',
+          'text-base-500',
+          'hover:text-base-700',
+          'focus-visible:outline-base-900',
+        ],
       },
     },
     defaultVariants: {

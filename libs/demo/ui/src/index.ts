@@ -5,6 +5,7 @@ export * from './design-system/atoms/form/field';
 export * from './design-system/atoms/form/input';
 export * from './design-system/atoms/link';
 export * from './design-system/atoms/typography/heading';
+export * from './design-system/molecules/accordion';
 export * from './design-system/molecules/brand';
 export * from './design-system/molecules/carousel';
 export * from './design-system/molecules/tabs';
