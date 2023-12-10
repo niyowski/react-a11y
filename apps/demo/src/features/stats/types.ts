@@ -1,7 +1,7 @@
-import { StatProps } from '@demo/ui';
+import { DataVizComponentProps } from '@demo/ui';
 
 export type StatItem = Pick<
-  StatProps,
+  DataVizComponentProps,
   'id' | 'title' | 'description' | 'value' | 'color'
 >;
 
