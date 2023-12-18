@@ -23,7 +23,6 @@ const highlights: BulletPoint[] = [
         </>
       ),
     },
-    transition: 'none',
   },
   {
     id: '3',
@@ -35,13 +34,11 @@ const highlights: BulletPoint[] = [
         </>
       ),
     },
-    transition: 'none',
   },
   {
     id: '4',
     icon: { component: LightbulbIcon, className: 'text-warning-500' },
     text: { content: 'Shift keyboard focus to' },
-    transition: 'none',
     children: [
       {
         id: '4.1',
