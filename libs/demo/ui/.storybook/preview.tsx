@@ -27,6 +27,11 @@ const preview: Preview = {
         </>
       ),
     },
+    a11y: {
+      config: {
+        // I see no reason to disable any of the rules
+      },
+    },
   },
 };
 

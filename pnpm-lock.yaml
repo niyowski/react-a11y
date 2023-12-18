@@ -109,6 +109,9 @@ devDependencies:
   '@playwright/test':
     specifier: ^1.40.1
     version: 1.40.1
+  '@storybook/addon-a11y':
+    specifier: ^7.6.4
+    version: 7.6.5
   '@storybook/addon-essentials':
     specifier: ^7.6.4
     version: 7.6.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
@@ -4510,6 +4513,13 @@ packages:
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
       '@sinonjs/commons': 3.0.0
+    dev: true
+
+  /@storybook/addon-a11y@7.6.5:
+    resolution: {integrity: sha512-mbwjgdlNDcp0nL29s9FoF+HEFmWn0fMXfTcgMNjQWHs+sfmOy6w3llk0n0RJeDjc+x2Y8Oj2c+JwLU1hhJBnag==}
+    dependencies:
+      '@storybook/addon-highlight': 7.6.5
+      axe-core: 4.7.0
     dev: true
 
   /@storybook/addon-actions@7.6.5:
