@@ -16,21 +16,28 @@ const mount = (props: InputProps) => {
       />
     );
   };
-  return cy.mount(<Component />);
+
+  cy.mount(<Component />);
+  cy.injectAndConfigureAxe();
 };
 
 const getInput = () => cy.get('input');
 
 describe('Input', () => {
+  // Arrange
+  const props: InputProps = {
+    value: 'My Input',
+  };
+
   it('should render correctly', () => {
     // Arrange
-    const props: InputProps = {
-      value: 'My Input',
+    const propsWithOnChange: InputProps = {
+      ...props,
       onChange: cy.spy().as('onChange'),
     };
 
     // Act && Assert
-    mount(props);
+    mount(propsWithOnChange);
     getInput().should('have.value', props.value);
 
     // Act && Assert
@@ -38,5 +45,13 @@ describe('Input', () => {
     cy.get('@onChange').should('have.been.calledWithMatch', {
       target: { value: 'New value' },
     });
+  });
+
+  it('should not have any a11y violations', () => {
+    // Act
+    mount(props);
+
+    // Assert
+    cy.auditAccessibility();
   });
 });

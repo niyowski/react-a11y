@@ -3,32 +3,33 @@ import { testId } from './constants';
 import type { AccordionItem } from './types';
 
 const mount = (props: AccordionProps) => {
-  return cy.mount(<Accordion {...props} data-testid={testId.accordion} />);
+  cy.mount(<Accordion {...props} data-testid={testId.accordion} />);
+  cy.injectAndConfigureAxe();
 };
 
 const getByTestId = (id: string) => cy.get(`[data-testid=${id}]`);
 
 describe('Accordion', () => {
-  it('should render correctly', () => {
-    // Arrange
-    const items: AccordionItem[] = [
-      {
-        id: 'accordion-item-1',
-        title: 'Accordion Item 1',
-        content: <p>Accordion Item 1 content.</p>,
-      },
-      {
-        id: 'accordion-item-2',
-        title: 'Accordion Item 2',
-        content: <p>Accordion Item 2 content.</p>,
-      },
-      {
-        id: 'accordion-item-3',
-        title: 'Accordion Item 3',
-        content: <p>Accordion Item 3 content.</p>,
-      },
-    ];
+  // Arrange
+  const items: AccordionItem[] = [
+    {
+      id: 'accordion-item-1',
+      title: 'Accordion Item 1',
+      content: <p>Accordion Item 1 content.</p>,
+    },
+    {
+      id: 'accordion-item-2',
+      title: 'Accordion Item 2',
+      content: <p>Accordion Item 2 content.</p>,
+    },
+    {
+      id: 'accordion-item-3',
+      title: 'Accordion Item 3',
+      content: <p>Accordion Item 3 content.</p>,
+    },
+  ];
 
+  it('should render correctly', () => {
     // Act
     mount({ items });
 
@@ -55,5 +56,13 @@ describe('Accordion', () => {
           .should('be.visible')
           .should('contain.text', 'Accordion Item 3 content.');
       });
+  });
+
+  it('should not have any a11y violations', () => {
+    // Act
+    mount({ items });
+
+    // Assert
+    cy.auditAccessibility();
   });
 });

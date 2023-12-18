@@ -4,32 +4,33 @@ import { Tabs } from './tabs';
 import type { Tab } from './types';
 
 const mount = (props: TabsProps) => {
-  return cy.mount(<Tabs {...props} data-testid={testId.tabs} />);
+  cy.mount(<Tabs {...props} data-testid={testId.tabs} />);
+  cy.injectAndConfigureAxe();
 };
 
 const getByTestId = (id: string) => cy.get(`[data-testid=${id}]`);
 
 describe('Tabs', () => {
-  it('should render correctly', () => {
-    // Arrange
-    const tabs: Tab[] = [
-      {
-        id: 'tab-1',
-        title: 'Tab 1',
-        children: 'Tab 1 content',
-      },
-      {
-        id: 'tab-2',
-        title: 'Tab 2',
-        children: 'Tab 2 content',
-      },
-      {
-        id: 'tab-3',
-        title: 'Tab 3',
-        children: 'Tab 3 content',
-      },
-    ];
+  // Arrange
+  const tabs: Tab[] = [
+    {
+      id: 'tab-1',
+      title: 'Tab 1',
+      children: 'Tab 1 content',
+    },
+    {
+      id: 'tab-2',
+      title: 'Tab 2',
+      children: 'Tab 2 content',
+    },
+    {
+      id: 'tab-3',
+      title: 'Tab 3',
+      children: 'Tab 3 content',
+    },
+  ];
 
+  it('should render correctly', () => {
     // Act
     mount({ tabs });
 
@@ -54,5 +55,13 @@ describe('Tabs', () => {
         cy.wrap($items[2]).should('contain.text', 'Tab 3 content');
         cy.wrap($items[2]).should('have.class', 'hidden');
       });
+  });
+
+  it('should not have any a11y violations', () => {
+    // Act
+    mount({ tabs });
+
+    // Assert
+    cy.auditAccessibility();
   });
 });

@@ -3,31 +3,32 @@ import { testId } from './constants';
 import type { CarouselSlide } from './types';
 
 const mount = (props: CarouselProps) => {
-  return cy.mount(<Carousel {...props} data-testid={testId.carousel} />);
+  cy.mount(<Carousel {...props} data-testid={testId.carousel} />);
+  cy.injectAndConfigureAxe();
 };
 
 const getByTestId = (id: string) => cy.get(`[data-testid=${id}]`);
 
 describe('Carousel', () => {
-  it('should render correctly', () => {
-    // Arrange
-    const slides: CarouselSlide[] = [
-      {
-        id: 'slide-1',
-        image: { src: '/slide-1.jpg' },
-        content: { title: 'Slide 1', children: 'Slide 1 content' },
-      },
-      {
-        id: 'slide-2',
-        bgColor: 'blue',
-        content: { title: 'Slide 2', children: 'Slide 2 content' },
-      },
-      {
-        id: 'slide-3',
-        image: { src: '/slide-3.jpg' },
-      },
-    ];
+  // Arrange
+  const slides: CarouselSlide[] = [
+    {
+      id: 'slide-1',
+      image: { src: '/slide-1.jpg' },
+      content: { title: 'Slide 1', children: 'Slide 1 content' },
+    },
+    {
+      id: 'slide-2',
+      bgColor: 'blue',
+      content: { title: 'Slide 2', children: 'Slide 2 content' },
+    },
+    {
+      id: 'slide-3',
+      image: { src: '/slide-3.jpg' },
+    },
+  ];
 
+  it('should render correctly', () => {
     // Act
     mount({ slides });
 
@@ -43,5 +44,13 @@ describe('Carousel', () => {
       });
     getByTestId(testId.carouselSlideContent).should('have.length', 2);
     getByTestId(testId.carouselNextButton).should('exist');
+  });
+
+  it('should not have any a11y violations', () => {
+    // Act
+    mount({ slides });
+
+    // Assert
+    cy.auditAccessibility();
   });
 });

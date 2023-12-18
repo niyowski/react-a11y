@@ -17,9 +17,13 @@ describe('Heading', () => {
 
       // Act
       mount({ as, children: text });
+      cy.injectAndConfigureAxe();
 
       // Assert
       getElement().should('have.text', text);
+
+      // Assert a11y
+      cy.auditAccessibility();
     });
   });
 });

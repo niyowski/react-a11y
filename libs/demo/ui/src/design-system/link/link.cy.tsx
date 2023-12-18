@@ -17,10 +17,14 @@ describe('Link', () => {
         <Link to={href}>My Link</Link>
       </MemoryRouter>,
     );
+    cy.injectAndConfigureAxe();
 
     // Assert
     getLink().should('contains.text', text);
     getLink().should('have.attr', 'href', href);
+
+    // Assert a11y
+    cy.auditAccessibility();
   });
 });
 
@@ -32,9 +36,13 @@ describe('Anchor', () => {
 
     // Act
     cy.mount(<Anchor href={href}>My Link</Anchor>);
+    cy.injectAndConfigureAxe();
 
     // Assert
     getLink().should('contains.text', text);
     getLink().should('have.attr', 'href', href);
+
+    // Assert a11y
+    cy.auditAccessibility();
   });
 });

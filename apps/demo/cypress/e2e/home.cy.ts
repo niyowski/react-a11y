@@ -1,7 +1,10 @@
 import { BRAND_NAME, testId } from '~/constants';
 
-describe('demo', () => {
-  beforeEach(() => cy.visit('/'));
+describe('/', () => {
+  beforeEach(() => {
+    cy.visit('/');
+    cy.injectAndConfigureAxe();
+  });
 
   it('should have a brand', () => {
     cy.get(`[data-testid="${testId.brandLogo}"]`).should('be.visible');
@@ -10,5 +13,9 @@ describe('demo', () => {
 
   it('should have stats', () => {
     cy.get(`[data-testid="${testId.stats}"]`).should('be.visible');
+  });
+
+  it('should not have any a11y violations', () => {
+    cy.auditAccessibility();
   });
 });
