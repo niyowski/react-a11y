@@ -1,7 +1,12 @@
-import type { PropsWithChildren } from 'react';
-
 import { Slide } from './slide';
 
-export const VerticalSlides = ({ children }: PropsWithChildren) => {
-  return <Slide>{children}</Slide>;
+type VerticalSlidesProps = React.PropsWithChildren<{
+  id: string;
+}>;
+
+export const VerticalSlides: React.FC<VerticalSlidesProps> = ({
+  id,
+  children,
+}) => {
+  return <Slide id={id}>{children}</Slide>;
 };

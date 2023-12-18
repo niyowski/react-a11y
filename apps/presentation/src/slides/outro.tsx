@@ -1,19 +1,22 @@
-import { Heading } from '~/components/heading';
-import { Text } from '~/components/text';
-import { Slide as BasicSlide } from '~/reveal/templates/slide';
+import { Image } from '~/components/image';
+import { Slide } from '~/reveal/templates/slide';
 
-export default function Slide() {
+export default () => {
   return (
-    <BasicSlide>
-      <Heading as="h2">Thank you for your attention!</Heading>
-      <article className="flex items-center justify-center">
-        <img
+    <Slide id="outro" title="Thank you for your attention!">
+      <div className="flex items-center justify-center">
+        <Image
           src="/images/qr-github.png"
           alt="QR code for the GitHub repository."
           className="w-80 rounded"
         />
-      </article>
-      <Text as="p">Contributions are welcome</Text>
-    </BasicSlide>
+      </div>
+      <p>
+        Contributions are welcome{' '}
+        <span role="img" aria-label="Heart emoji">
+          ❤️
+        </span>
+      </p>
+    </Slide>
   );
-}
+};

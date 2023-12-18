@@ -1,22 +1,24 @@
-import { Heading } from '~/components/heading';
-import { Text } from '~/components/text';
+import { SlideTitle } from '~/components/slide-title';
 
-import { Slide, type SlideContent, type SlideProps } from './slide';
+import { Slide, type SlideProps } from './slide';
 
-type FactSlideProps = SlideProps & {
-  figure: SlideContent;
-  description: SlideContent;
+export type Fact = {
+  figure: string;
+  description: React.ReactNode;
 };
 
-export const FactSlide = ({ figure, description, ...rest }: FactSlideProps) => {
+type FactSlideProps = SlideProps & {
+  fact: Fact;
+};
+
+export const FactSlide: React.FC<FactSlideProps> = ({
+  fact: { figure, description },
+  ...slideProps
+}) => {
   return (
-    <Slide {...rest}>
-      <Heading as="h2" className="text-[8rem]">
-        {figure}
-      </Heading>
-      <Text as="p" className="text-base-400 italic">
-        {description}
-      </Text>
+    <Slide {...slideProps}>
+      <SlideTitle className="text-[8rem]">{figure}</SlideTitle>
+      <p className="text-base-300 m-0 mt-16 text-lg">{description}</p>
     </Slide>
   );
 };

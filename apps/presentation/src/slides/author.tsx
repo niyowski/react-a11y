@@ -1,69 +1,79 @@
-import { BulletedList, type BulletPoint } from '~/components/bullets';
-import { Heading } from '~/components/heading';
-import { AuthorSlide, ContactInfo } from '~/reveal/templates/author';
-import { Image } from '~/types';
+import {
+  AccessibilityIcon,
+  AtomIcon,
+  AtSignIcon,
+  BriefcaseIcon,
+  CodeIcon,
+  GlobeIcon,
+  ShieldCheckIcon,
+} from 'lucide-react';
 
-const image: Image = {
-  src: '/images/author.png',
-  alt: 'Mehmet Yarar',
-};
+import { BulletedList, type BulletPoint } from '~/components/bulleted-list';
+import { Image } from '~/components/image';
+import { Slide } from '~/reveal/templates/slide';
 
-const info: BulletPoint[] = [
+const name = 'Mehmet Yarar';
+
+const contact: BulletPoint[] = [
   {
     id: '1',
-    icon: { name: 'code', className: 'text-teal-500' },
+    icon: { component: AtSignIcon },
+    text: { content: 'niyowski' },
+  },
+];
+
+const highlights: BulletPoint[] = [
+  {
+    id: '1',
+    icon: { component: CodeIcon, className: 'text-teal-500' },
     text: { content: 'Software Engineer at EPAM, 2+ years' },
-    transition: 'fade-in-then-semi-out',
   },
   {
     id: '2',
-    icon: { name: 'atom', className: 'text-blue-500' },
+    icon: { component: AtomIcon, className: 'text-sky-500' },
     text: { content: 'Developing in React, since 2018' },
-    transition: 'fade-in-then-semi-out',
   },
   {
     id: '3',
-    icon: { name: 'briefcase', className: 'text-pink-500' },
-    text: { content: 'Nowadays...' },
-    transition: 'fade-in-then-semi-out',
+    icon: { component: BriefcaseIcon, className: 'text-blue-500' },
+    text: { content: 'Microfrontend Apps and Design System' },
     children: [
       {
         id: '3.1',
-        icon: { name: 'check', className: 'text-pink-500' },
-        text: { content: 'Microfrontends & Design Systems' },
+        icon: { component: GlobeIcon, className: 'text-blue-500' },
+        text: { content: 'Internationalization' },
+        transition: 'none',
       },
       {
         id: '3.2',
-        icon: { name: 'check', className: 'text-pink-500' },
-        text: { content: 'Internationalization' },
+        icon: { component: AccessibilityIcon, className: 'text-blue-500' },
+        text: { content: 'Accessibility' },
+        transition: 'none',
       },
       {
         id: '3.3',
-        icon: { name: 'check', className: 'text-pink-500' },
-        text: { content: 'Web Security' },
-      },
-      {
-        id: '3.4',
-        icon: { name: 'check', className: 'text-pink-500' },
-        text: { content: 'Web Accessibility' },
+        icon: { component: ShieldCheckIcon, className: 'text-blue-500' },
+        text: { content: 'Security' },
+        transition: 'none',
       },
     ],
   },
 ];
 
-const contact: ContactInfo[] = [
-  {
-    id: '1',
-    icon: { name: 'at-sign' },
-    title: 'niyowski',
-  },
-];
-
-export default function Slide() {
+export default () => {
   return (
-    <AuthorSlide image={image} contact={contact} data-transition="concave">
-      <Heading as="h2">Mehmet Yarar</Heading>
-      <BulletedList items={info} />
-    </AuthorSlide>
+    <Slide id="author" title={name} alignTop>
+      <div className="flex">
+        <BulletedList items={highlights} className="flex-1" />
+        <div className="flex flex-col items-center">
+          <Image
+            src="/images/author.png"
+            alt={name}
+            className="m-0 w-60 rounded-full shadow-2xl hue-rotate-90"
+          />
+          <BulletedList items={contact} />
+        </div>
+      </div>
+    </Slide>
   );
-}
+};

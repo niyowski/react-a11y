@@ -1,33 +1,31 @@
-import { BulletedList, type BulletPoint } from '~/components/bullets';
-import { Heading } from '~/components/heading';
-import { Slide as BasicSlide } from '~/reveal/templates/slide';
+import { ArrowRightIcon } from 'lucide-react';
+
+import { BulletedList, type BulletPoint } from '~/components/bulleted-list';
+import { Slide } from '~/reveal/templates/slide';
 
 const agenda: BulletPoint[] = [
   {
     id: '1',
-    icon: { name: 'star', className: 'text-primary-500' },
-    text: { content: 'Manual Testing' },
-    transition: 'grow',
+    icon: { component: ArrowRightIcon, className: 'text-primary-500' },
+    text: { content: 'Automated Accessibility Testing' },
   },
   {
     id: '2',
-    icon: { name: 'star', className: 'text-primary-500' },
-    text: { content: 'Automated Testing' },
-    transition: 'grow',
+    icon: { component: ArrowRightIcon, className: 'text-primary-500' },
+    text: { content: 'Manual Accessibility Testing' },
   },
+
   {
     id: '3',
-    icon: { name: 'star', className: 'text-primary-500' },
-    text: { content: 'Common Issues' },
-    transition: 'grow',
+    icon: { component: ArrowRightIcon, className: 'text-primary-500' },
+    text: { content: 'Common Issues and Recipes' },
   },
 ];
 
-export default function Slide() {
+export default () => {
   return (
-    <BasicSlide>
-      <Heading as="h2">Agenda</Heading>
+    <Slide id="agenda" title="Agenda" alignTop centerContent>
       <BulletedList items={agenda} />
-    </BasicSlide>
+    </Slide>
   );
-}
+};

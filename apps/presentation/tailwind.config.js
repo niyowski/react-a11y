@@ -1,5 +1,6 @@
 const { join } = require('path');
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,9 +9,17 @@ module.exports = {
     extend: {
       colors: {
         base: colors.stone,
-        primary: colors.yellow,
-        secondary: colors.blue,
-        danger: colors.red,
+        primary: colors.amber,
+        secondary: colors.sky,
+        tertiary: colors.indigo,
+        info: colors.blue,
+        success: colors.emerald,
+        warning: colors.yellow,
+        danger: colors.rose,
+      },
+      fontFamily: {
+        mono: ['Recursive', defaultTheme.fontFamily.mono], // for code
+        serif: ['Salsa', defaultTheme.fontFamily.serif], // for quotes
       },
     },
   },
@@ -19,6 +28,7 @@ module.exports = {
     require('@tailwindcss/container-queries'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    require('tailwind-scrollbar'),
   ],
   important: true,
   safelist: [

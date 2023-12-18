@@ -1,25 +1,22 @@
-import { Text } from '~/components/text';
 import { type Quote, QuoteSlide } from '~/reveal/templates/quote';
 
 const quote: Quote = {
-  author: 'Scott Hamilton',
-  content: (
+  attribution: 'Scott Hamilton',
+  statement: (
     <>
       The only disability in life is a{' '}
-      <Text as="span" className="text-danger-500 text-4xl font-bold">
-        bad attitude
-      </Text>
-      .
+      <span className="text-danger-400 text-4xl font-bold">bad attitude</span>.
     </>
   ),
 };
 
-export default function Slide() {
+export default () => {
   return (
     <QuoteSlide
+      id="bad-attitude"
       quote={quote}
       data-background-image="/images/valeria-voevodina-nWQ0fPpLFOo-unsplash.jpg"
       data-background-opacity="0.1"
     />
   );
-}
+};

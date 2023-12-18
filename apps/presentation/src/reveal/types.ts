@@ -1,5 +1,7 @@
 import type { Options } from 'reveal.js';
 
+export type Transition = Options['transition'];
+
 /**
  * @see https://revealjs.com/fragments/.
  */
@@ -23,10 +25,3 @@ export type FragmentStyle =
   | 'highlight-current-red'
   | 'highlight-current-green'
   | 'highlight-current-blue';
-
-export type SlideTransition = Options['transition'];
-
-export type Image = {
-  src: string;
-  alt: string;
-};

@@ -81,5 +81,3 @@ npx nx run ui:cy
 - [Photo by Ian Schneider on Unsplash](https://unsplash.com/photos/two-person-standing-on-gray-tile-paving-TamMbr4okv4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 - [Photo by Tingey Injury Law Firm on Unsplash](https://unsplash.com/photos/brown-wooden-stand-with-black-background-nSpj-Z12lX0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 - [Photo by Valeria Voevodina on Unsplash](https://unsplash.com/photos/a-purple-toy-with-a-weird-hair-and-eyes-nWQ0fPpLFOo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
-- [GIF - Wings Seriously on Tenor](https://tenor.com/view/wings-seriously-yeah-alright-shahs-of-sunset-gif-12340261)
-- [GIF - Let's Get Started on Tenor](https://tenor.com/view/despicable-me-minions-lets-get-started-happy-excited-gif-4767352)

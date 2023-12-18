@@ -1,34 +1,27 @@
-import { Text } from '~/components/text';
-
-import { Slide, type SlideContent, type SlideProps } from './slide';
+import { Slide, type SlideProps } from './slide';
 
 export type Quote = {
-  content: SlideContent;
-  author: string;
+  statement: React.ReactNode;
+  attribution: string;
 };
 
 type QuoteProps = SlideProps & {
   quote: Quote;
 };
 
-export const QuoteSlide = ({
-  quote: { content, author },
-  ...rest
-}: QuoteProps) => {
+export const QuoteSlide: React.FC<QuoteProps> = ({
+  quote: { statement, attribution },
+  ...slideProps
+}) => {
   return (
-    <Slide {...rest}>
-      <blockquote className="bg-white-400 h-full w-full rounded-md border border-gray-100 bg-opacity-10 bg-clip-padding shadow-2xl backdrop-blur-md backdrop-filter">
-        <Text
-          as="p"
-          className="text-base-200 text-4xl before:hidden after:hidden"
-        >
-          {content}
-        </Text>
-        <footer>
-          <Text as="span" className="text-base-400 text-2xl">
-            —{author}
-          </Text>
-        </footer>
+    <Slide {...slideProps}>
+      <blockquote className="bg-white-400 border-base-100 h-full w-full rounded-md border bg-opacity-10 bg-clip-padding shadow-2xl backdrop-blur-md backdrop-filter">
+        <p className="text-base-200 font-serif text-4xl before:hidden after:hidden">
+          {statement}
+        </p>
+        <figcaption className="text-base-400 text-2xl">
+          &mdash; {attribution}
+        </figcaption>
       </blockquote>
     </Slide>
   );

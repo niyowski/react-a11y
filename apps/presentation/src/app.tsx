@@ -1,16 +1,13 @@
 import 'reveal.js/dist/reset.css';
 import 'reveal.js/dist/reveal.css';
-import 'reveal.js/dist/theme/night.css';
-import 'reveal.js/plugin/highlight/monokai.css';
+import 'reveal.js/dist/theme/dracula.css';
 
 import { useEffect } from 'react';
 import Reveal from 'reveal.js';
-import RevealHighlight from 'reveal.js/plugin/highlight/highlight.esm.js';
-import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.esm.js';
 import RevealNotes from 'reveal.js/plugin/notes/notes.esm.js';
 
 import { SlideDeck } from '~/reveal/deck';
-import Slides from '~/slides';
+import { Slides } from '~/slides';
 
 export function App() {
   useEffect(() => {
@@ -18,14 +15,16 @@ export function App() {
       Reveal.initialize({
         hash: true,
         controlsTutorial: false,
-        plugins: [RevealHighlight, RevealMarkdown, RevealNotes],
+        plugins: [RevealNotes],
       });
     }
   }, []);
 
   return (
-    <div className="prose h-screen max-w-none">
-      <SlideDeck>{Slides}</SlideDeck>
+    <div className="prose prose-base h-screen max-w-none">
+      <SlideDeck>
+        <Slides />
+      </SlideDeck>
     </div>
   );
 }

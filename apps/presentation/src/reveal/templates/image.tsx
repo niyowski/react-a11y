@@ -1,18 +1,18 @@
-import type { Image } from '~/types';
+import { Image, type ImageResource } from '~/components/image';
 
 import { Slide, type SlideProps } from './slide';
 
 type ImageSlideProps = SlideProps & {
-  image: Image;
+  image: ImageResource;
 };
 
-export const ImageSlide = ({
-  image: { src, alt },
-  ...rest
-}: ImageSlideProps) => {
+export const ImageSlide: React.FC<ImageSlideProps> = ({
+  image,
+  ...slideProps
+}) => {
   return (
-    <Slide {...rest}>
-      <img src={src} alt={alt} className="w-full" data-preload />
+    <Slide {...slideProps} className="flex flex-col items-center">
+      <Image {...image} className="r-stretch shadow-xl" data-preload />
     </Slide>
   );
 };
