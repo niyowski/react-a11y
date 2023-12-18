@@ -2,6 +2,7 @@
   "extends": [
     "plugin:storybook/recommended",
     "plugin:@nx/react",
+    "plugin:jsx-a11y/strict",
     "../../../.eslintrc.json"
   ],
   "ignorePatterns": [
@@ -11,6 +12,21 @@
     "tailwind.config.js",
     "cypress.config.ts"
   ],
+  "rules": {
+    // Temporarily disable rules to be able to commit
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/interactive-supports-focus": "warn",
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    // Rules that are disabled or not included in recommended or strict configs
+    "jsx-a11y/anchor-ambiguous-text": "warn",
+    "jsx-a11y/control-has-associated-label": "warn",
+    "jsx-a11y/label-has-for": "warn",
+    "jsx-a11y/lang": "warn",
+    "jsx-a11y/no-aria-hidden-on-focusable": "warn",
+    "jsx-a11y/prefer-tag-over-role": "warn"
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
