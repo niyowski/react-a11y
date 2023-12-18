@@ -1,6 +1,7 @@
 import { SectionSlide } from '~/reveal/templates/section';
 
 import ClientSideRouting from './client-side-routing';
+import OtherIssues from './other-issues';
 
 export default () => {
   return (
@@ -11,6 +12,7 @@ export default () => {
       />
       {/** TODO: Add slides here */}
       <ClientSideRouting />
+      <OtherIssues />
     </>
   );
 };
