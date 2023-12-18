@@ -1,10 +1,14 @@
 import { Anchor, Brand, Link } from '@demo/ui';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { BRAND_NAME, testId } from '~/constants';
 import { NewsletterSubscription } from '~/features/newsletter';
+import { useAxe } from '~/hooks/use-axe';
 
 export function Layout() {
+  const { pathname } = useLocation();
+  useAxe(pathname);
+
   return (
     <div className="prose mx-auto flex min-h-screen max-w-screen-lg flex-col">
       <div className="flex items-center justify-between p-4">
