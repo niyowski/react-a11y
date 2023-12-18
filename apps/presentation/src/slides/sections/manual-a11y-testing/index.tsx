@@ -1,5 +1,7 @@
 import { SectionSlide } from '~/reveal/templates/section';
 
+import BrowserExtentions from './browser-extentions';
+
 export default () => {
   return (
     <>
@@ -8,6 +10,7 @@ export default () => {
         title="Manual Accessibility Testing"
       />
       {/** TODO: Add slides here */}
+      <BrowserExtentions />
     </>
   );
 };
