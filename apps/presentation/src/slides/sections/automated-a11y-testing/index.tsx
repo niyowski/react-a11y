@@ -1,5 +1,6 @@
 import { SectionSlide } from '~/reveal/templates/section';
 
+import AxeCorePlaywright from './axe-core-playwright';
 import AxeCoreReact from './axe-core-react';
 import CypressAxe from './cypress-axe';
 import EslintPluginJsxA11y from './eslint-plugin-jsx-a11y';
@@ -17,6 +18,7 @@ export default () => {
       <EslintPluginJsxA11y />
       <JestAxe />
       <CypressAxe />
+      <AxeCorePlaywright />
     </>
   );
 };
