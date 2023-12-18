@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { expectToHaveNoViolations } from 'test/a11y';
 
 import { Carousel } from './carousel';
 import { testId } from './constants';
@@ -14,25 +15,27 @@ function expectToBeHidden(el: HTMLElement) {
 }
 
 describe('Carousel', () => {
+  // Arrange
+  const slides: CarouselSlide[] = [
+    {
+      id: 'slide-1',
+      image: { src: '/slide-1.jpg' },
+      content: { title: 'Slide 1', children: 'Slide 1 content' },
+    },
+    {
+      id: 'slide-2',
+      bgColor: 'blue',
+      content: { title: 'Slide 2', children: 'Slide 2 content' },
+    },
+    {
+      id: 'slide-3',
+      image: { src: '/slide-3.jpg' },
+    },
+  ];
+
   it('should render correctly', async () => {
     // Arrange
     const user = userEvent.setup();
-    const slides: CarouselSlide[] = [
-      {
-        id: 'slide-1',
-        image: { src: '/slide-1.jpg' },
-        content: { title: 'Slide 1', children: 'Slide 1 content' },
-      },
-      {
-        id: 'slide-2',
-        bgColor: 'blue',
-        content: { title: 'Slide 2', children: 'Slide 2 content' },
-      },
-      {
-        id: 'slide-3',
-        image: { src: '/slide-3.jpg' },
-      },
-    ];
 
     // Act
     render(<Carousel slides={slides} data-testid={testId.carousel} />);
@@ -82,5 +85,13 @@ describe('Carousel', () => {
     expectToBeHidden(slideElements[0]);
     expectToBeVisible(slideElements[1]);
     expectToBeHidden(slideElements[2]);
+  });
+
+  it('should not have any a11y violations', async () => {
+    // Act
+    const { container } = render(<Carousel slides={slides} />);
+
+    // Assert
+    await expectToHaveNoViolations(container);
   });
 });

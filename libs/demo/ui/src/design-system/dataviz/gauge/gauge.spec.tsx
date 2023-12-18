@@ -1,12 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import { expectToHaveNoViolations } from 'test/a11y';
 
 import { testId } from './constants';
 import { Gauge } from './gauge';
 
 describe('Gauge', () => {
+  // Arrange
+  const value = 42;
+
   it('should render correctly', () => {
     // Arrange
-    const value = 42;
     const title = 'The Answer';
     const descr =
       'The answer to the ultimate question of life, the universe, and everything.';
@@ -23,5 +26,13 @@ describe('Gauge', () => {
     // Act && Assert
     rerender(<Gauge value={value} description={descr} />);
     expect(screen.getByTestId(testId.gaugeDescr)).toHaveTextContent(descr);
+  });
+
+  it('should not have any a11y violations', async () => {
+    // Act
+    const { container } = render(<Gauge value={value} />);
+
+    // Assert
+    await expectToHaveNoViolations(container);
   });
 });

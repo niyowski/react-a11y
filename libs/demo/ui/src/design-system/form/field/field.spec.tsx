@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { expectToHaveNoViolations } from 'test/a11y';
 
 import { Input } from '../input';
 import { Field, type FieldProps } from './field';
@@ -17,38 +18,57 @@ const renderField = (props: Omit<FieldProps, 'children'>) => {
 };
 
 describe('Field', () => {
-  it('should render label correctly', () => {
+  it('should render label correctly', async () => {
     // Act
-    renderField({ label: labelText });
+    const { container } = renderField({ label: labelText });
 
     // Assert
     expect(screen.getByText(labelText)).toBeInTheDocument();
     expect(screen.getByTestId(testId.field)).toBeInTheDocument();
+
+    // Assert A11y
+    await expectToHaveNoViolations(container);
   });
 
-  it('should render correctly when the label is hidden', () => {
+  it('should render correctly when the label is hidden', async () => {
     // Act
-    renderField({ label: labelText, isLabelHidden: true });
+    const { container } = renderField({
+      label: labelText,
+      isLabelHidden: true,
+    });
 
     // Assert
     expect(screen.getByText(labelText)).toHaveClass('hidden');
+
+    // Assert A11y
+    await expectToHaveNoViolations(container);
   });
 
-  it('should render correctly when required', () => {
+  it('should render correctly when required', async () => {
     // Act
-    renderField({ label: labelText, required: true });
+    const { container } = renderField({ label: labelText, required: true });
 
     // Assert
     expect(screen.getByText(labelText)).toHaveClass(requiredClass);
     expect(screen.getByRole('textbox')).toHaveAttribute('required');
+
+    // Assert A11y
+    await expectToHaveNoViolations(container);
   });
 
-  it('should render correctly when required and the label is hidden', () => {
+  it('should render correctly when required and the label is hidden', async () => {
     // Act
-    renderField({ label: labelText, required: true, isLabelHidden: true });
+    const { container } = renderField({
+      label: labelText,
+      required: true,
+      isLabelHidden: true,
+    });
 
     // Assert
     const { parentElement } = screen.getByText(labelText);
     expect(parentElement).toHaveClass(requiredClass);
+
+    // Assert A11y
+    await expectToHaveNoViolations(container);
   });
 });

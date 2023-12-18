@@ -2,6 +2,7 @@ import { SectionSlide } from '~/reveal/templates/section';
 
 import AxeCoreReact from './axe-core-react';
 import EslintPluginJsxA11y from './eslint-plugin-jsx-a11y';
+import JestAxe from './jest-axe';
 
 export default () => {
   return (
@@ -13,6 +14,7 @@ export default () => {
       {/** TODO: Add slides here */}
       <AxeCoreReact />
       <EslintPluginJsxA11y />
+      <JestAxe />
     </>
   );
 };

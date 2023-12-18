@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { expectToHaveNoViolations } from 'test/a11y';
 
 import { Accordion } from './accordion';
 import { testId } from './constants';
@@ -13,26 +14,26 @@ function expectToBeHidden(el: HTMLElement) {
   return expect(el).toHaveClass('hidden');
 }
 
-// Arrange
-const items: AccordionItem[] = [
-  {
-    id: 'accordion-item-1',
-    title: 'Accordion Item 1',
-    content: <p>Accordion Item 1 content.</p>,
-  },
-  {
-    id: 'accordion-item-2',
-    title: 'Accordion Item 2',
-    content: <p>Accordion Item 2 content.</p>,
-  },
-  {
-    id: 'accordion-item-3',
-    title: 'Accordion Item 3',
-    content: <p>Accordion Item 3 content.</p>,
-  },
-];
-
 describe('Accordion', () => {
+  // Arrange
+  const items: AccordionItem[] = [
+    {
+      id: 'accordion-item-1',
+      title: 'Accordion Item 1',
+      content: <p>Accordion Item 1 content.</p>,
+    },
+    {
+      id: 'accordion-item-2',
+      title: 'Accordion Item 2',
+      content: <p>Accordion Item 2 content.</p>,
+    },
+    {
+      id: 'accordion-item-3',
+      title: 'Accordion Item 3',
+      content: <p>Accordion Item 3 content.</p>,
+    },
+  ];
+
   it('should render correctly', async () => {
     // Arrange
     const user = userEvent.setup();
@@ -71,5 +72,13 @@ describe('Accordion', () => {
     expectToBeVisible(contentElements[0]);
     expectToBeVisible(contentElements[1]);
     expectToBeVisible(contentElements[2]);
+  });
+
+  it('should not have any a11y violations', async () => {
+    // Act
+    const { container } = render(<Accordion items={items} isAllExpanded />);
+
+    // Assert
+    await expectToHaveNoViolations(container);
   });
 });
