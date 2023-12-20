@@ -5,6 +5,7 @@ import Disability from './disability';
 import Intro from './intro';
 import Outro from './outro';
 import Sections from './sections';
+import WebAccessibility from './web-accessibility';
 import WhyShouldWeCare from './why-should-we-care';
 
 export function Slides() {
@@ -13,6 +14,7 @@ export function Slides() {
       <Intro />
       <Disability />
       <WhyShouldWeCare />
+      <WebAccessibility />
       <Author />
       <Agenda />
       <Sections />
