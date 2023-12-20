@@ -33,7 +33,7 @@ const DEFAULT_CONFIG: AxeConfig = {
 export const useAxe = (path?: string, options?: AxeHookOptions) => {
   useEffect(() => {
     const isServer = typeof window === 'undefined';
-    const isDevelopment = process.env.NODE_ENV === 'development';
+    const isDevelopment = NODE_ENV === 'development';
     if (isServer || !isDevelopment) {
       return;
     }
