@@ -2,6 +2,8 @@ import { classNames } from '~/utils/css';
 
 type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
+export type Link = Required<Pick<AnchorProps, 'href' | 'children'>>;
+
 export const Anchor: React.FC<AnchorProps> = ({
   children,
   className,
