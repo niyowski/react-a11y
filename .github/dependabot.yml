@@ -8,6 +8,9 @@ updates:
       interval: "daily"
     allow:
       - dependency-type: "production"
+    ignore:
+      - dependency-name: "*"
+	      update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 3
     commit-message:
       prefix: "chore"
