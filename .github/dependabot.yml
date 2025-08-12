@@ -5,19 +5,19 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-	  interval: "daily"
-      time: '00:00'
-      timezone: 'America/New_York'
-	open-pull-requests-limit: 3
+      interval: "daily"
+      time: "00:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 3
     allow:
       - dependency-type: "production"
     ignore:
       - dependency-name: "*"
-	  	update-types: ['version-update:semver-patch']
-	groups:
+        update-types: ["version-update:semver-patch"]
+    groups:
       development-dependencies:
-        applies-to: 'version-updates'
-        dependency-type: 'development'
+        applies-to: "version-updates"
+        dependency-type: "development"
     commit-message:
       prefix: "chore"
       include: "scope"
